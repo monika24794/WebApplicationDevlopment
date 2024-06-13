@@ -1,0 +1,31 @@
+use sample // create sample database and switch to database
+db // current database
+show // show database
+db.createCollection("users")// create new collection table
+db.users.insert({name: "John", age:22})
+db.users.insert({name: "Jack", age:32})
+db.users.insert({name: "monika", age:30})
+db.users.insert({name: "chetana", age:28});
+db.users.insert({name: "sita", age:22});
+db.users.insert({name: "rita", age:30});
+
+db.users.find()
+db.users.find().pretty()
+db.users.find({age:30}).pretty()
+db.users.find({age:{$lt:25}}).pretty()
+db.users.find({age:{$lte:25}}).pretty()
+db.users.find({age:{$gt:25}}).pretty()
+db.users.find({age:{$gte:28}}).pretty()
+db.users.find({age:{$lt:25}}).pretty()
+db.users.find({age:{$ne:30}}).pretty()
+db.users.find({$or:[{name:"monika"},{age:22}]})     or operator
+db.users.find({$and:[{name:"monika"},{age:30}]})     logical and operator
+
+db.users.find({ age: { $in:[25,28,30]} })
+
+remove ,delete
+db.users.remove({ age:21})
+  
+
+  update
+  db.users.update({age:22},{$set:{name:"ritika"}})
